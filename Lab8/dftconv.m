@@ -19,15 +19,19 @@ function [conv_circ, conv_lin] = dftconv(h,x,N);
 
 	subplot(2,2,1);
 	plot(conv_circ);
+	title("Circular Convolution");
 
 	subplot(2,2,2);
 	plot(cconvAns);
+	title("Circular Convolution using In-Built Functions");
 
 	subplot(2,2,3);
 	plot(conv_lin);
+	title("Linear Convolution");
 
 	subplot(2,2,4);
 	plot(convAns);
+	title("Linear Convolution using In-Built Functions");
 
 	% Complexity of fft and ifft functions is NlogN, but element wise multiplication of the two fft matrics(of order N) will be O(N)
 	% Thus, overall complexity is O(NlogN)

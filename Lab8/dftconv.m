@@ -36,7 +36,7 @@ function [conv_circ, conv_lin] = dftconv(h,x,N);
 	% Complexity of fft and ifft functions is NlogN, but element wise multiplication of the two fft matrics(of order N) will be O(N)
 	% Thus, overall complexity is O(NlogN)
 
-	%Complexity of convolution in time domain is O(N^2)
+	% Complexity of convolution in time domain is O(N^2)
 
 
 end

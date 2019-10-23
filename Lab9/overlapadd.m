@@ -43,10 +43,16 @@ function y = overlapadd(h,x,N)
 	end
 
 	% Trim extra zeros from the end of y to get the correct length convolution
-	y = y(1:Lx+M-1)
+
+	y2 = conv(h,x);
+
+	y2 = y2(1:Lx+M-1);
+	y = y(1:Lx+M-1);
+	
+	e = sum(abs(y2-y))
 
 	subplot(2,1,1);
-	plot(y);
+	stem(y);
 	
 	subplot(2,1,2);
-	plot(conv(h, x));
+	stem(y2);

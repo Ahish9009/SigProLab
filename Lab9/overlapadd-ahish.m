@@ -44,4 +44,9 @@ function y = overlapadd(h,x,N)
 
 	% Trim extra zeros from the end of y to get the correct length convolution
 	y = y(1:Lx+M-1)
+
+	subplot(2,1,1);
 	plot(y);
+	
+	subplot(2,1,2);
+	plot(conv(h, x));

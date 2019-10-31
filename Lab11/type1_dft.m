@@ -35,10 +35,15 @@ function [w,h] = type1_dft(N,wc)
 	plot(0:2*pi/1023:2*pi,abs(H1));
 	stem(w,abs(H));
 	title("Magnitude Response");
+	xlabel("w");
+	ylabel("|H(w)|");
 	legend("DTFT", "Calculated Magnitude Response")
 	
 	subplot(3,1,3);
 	plot(angle(H1));
+	xlabel("w");
+	ylabel("angle(H(w))")
+	title("Phase Response")
 
 	%(c) It comes closer to the original shape	
 

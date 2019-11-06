@@ -1,28 +1,40 @@
-function y = checkfilter()
-
+% function to use the exported filter from filterDesigner
+function checkfilter2()
 	w0 = 0.4.*pi;
 
+    % generating the combined signal
 	t = 0:1:500;
-	s1 = sin(w0*t)
-	s2 = sin((2*w0).*t)
-
+	s1 = sin(w0*t);
+	s2 = sin((2*w0).*t);
 	combined = s1 + s2;
-	combined = combined./max(combined);
-	%plot(abs(fft(combined)));
+    
+    % filter coefficients from filterDesigner
+    b = [1 2 1];
+    a = [1 -1.481784128538675693320669779495801776648 0.831585910854089060961769064306281507015];
+	filtered = filter(b, a, combined);
+	
+    % plotting values
+    subplot(221);
+	plot(abs(fftshift(fft(combined))));
+	title("Combined Signal FFT")
+	xlabel("w");
+	ylabel("Magnitude")
 
-	%[b, a] = notch(2*w0, 0.99)
-
-	b = [1 2 1];
-	a = [1 -1.481784128538675693320669779495801776648 0.831585910854089060961769064306281507015];
-	%freqz(b,a);
-
-	filtered = filter(b,a,combined);
-	subplot(221);
-	plot(abs(fft(combined)));
 	subplot(222);
-	plot(abs(fft(filtered)));
+	plot(abs(fftshift(fft(filtered))));
+	title("Filtered Signal FFT")
+	xlabel("w");
+	ylabel("Magnitude")
+
 	subplot(223);
 	plot(t, combined);
+	title("Combined Signal in Time Domain")
+	xlabel("t");
+	ylabel("x(t)");
+
 	subplot(224);
 	plot(t, filtered);
+	title("Filtered Signal in Time Domain")
+	xlabel("t");
+	ylabel("x(t)");
 end

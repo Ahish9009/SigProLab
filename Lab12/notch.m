@@ -8,6 +8,6 @@ function [b, a] = notch(w0, r)
 	% Determine gain so that frequency response has magnitude 1 at w0
 	b = b.*(1 - 2.*r.*cos(w0) + r.*r)./(2 - 2.*cos(w0));
 	% Diagnostic display
-	%freqz(b,a);
+	freqz(b,a);
 	%fvtool(b,a);
 end

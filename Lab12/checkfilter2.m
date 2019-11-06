@@ -1,8 +1,8 @@
 function y = checkfilter()
 
-	w0 = 0.04.*pi;
+	w0 = 0.4.*pi;
 
-	t = 0:1:300;
+	t = 0:1:500;
 	s1 = sin(w0*t)
 	s2 = sin((2*w0).*t)
 
@@ -10,7 +10,11 @@ function y = checkfilter()
 	combined = combined./max(combined);
 	%plot(abs(fft(combined)));
 
-	[b, a] = notch(w0, 0.8);
+	%[b, a] = notch(2*w0, 0.99)
+
+	b = [1 2 1];
+	a = [1 -1.481784128538675693320669779495801776648 0.831585910854089060961769064306281507015];
+	%freqz(b,a);
 
 	filtered = filter(b,a,combined);
 	subplot(221);

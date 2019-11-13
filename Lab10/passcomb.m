@@ -1,6 +1,6 @@
 function y = passcomb() 
 
-	t = 0:1000;
+	t = 0:100;
 	lowf = sin(0.03.*pi.*t);
 	highf = sin(0.8.*pi.*t);
 

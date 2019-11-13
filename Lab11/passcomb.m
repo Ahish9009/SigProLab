@@ -4,12 +4,14 @@ function y = passcomb()
 	t = 0:1000;
 	lowf = sin(0.03.*pi.*t);
 	highf = sin(0.8.*pi.*t);
+	lowf = 0;
 
 	%combining the signal
 	combined = lowf + highf;
 
 	%generating the transition band
 	h = transitionband(21, 0.4*pi, [0.7 0.7]);
+	%[w h] = type1_dft(21, 0.4*pi); 
 
 	res = conv(h, combined);
 

@@ -11,8 +11,8 @@ function [hn_low, hn_high] = filter(len)
     w = blackman(len);
     hn_low = hd.*transpose(w);
     hl = fftshift(fft(hn_low, 51));
-    %subplot(121);
-    %plot(abs(hl));
+    subplot(121);
+    plot(abs(hl));
     
     for i = 1:len
         hd(i) = hd(i) .* (-1).^i;
@@ -20,6 +20,6 @@ function [hn_low, hn_high] = filter(len)
     w = blackman(len);
     hn_high = hd.*transpose(w);
     hf = fftshift(fft(hn_high, 51));
-    %subplot(122);
-    %plot(abs(hf));
+    subplot(122);
+    plot(abs(hf));
 end

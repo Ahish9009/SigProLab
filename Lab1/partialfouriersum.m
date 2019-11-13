@@ -11,6 +11,6 @@ for x=1:size(t,2)
 end
 
 
-%plot(t, (y));
+plot(t, (y));
 
 end
